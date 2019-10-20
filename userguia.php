@@ -277,33 +277,7 @@ class UserController{
                         }
 
 
-                        /*
-
-                    }else if(isset($_SESSION["tipo"]) && $_SESSION["tipo"]== 1){
-                        //echo"estoy en el segundo if de delete en user, el usuario NO es administrador<br/>";
-
-                   // }
-
-
-                    //$tipo = $_SESSION["tipo"];
-                
-                    //if($tipo == 1){
-    
-                    $db = new mysqli('localhost','root','','practica01');
-                    $borraUsuario = $db->query("DELETE FROM usuarios WHERE id = $id");
-                    echo "<script>location.href='index.php?do=mainPage'</script>"; 
-    
-                    }else if($tipo == 0){
-    
-                        $id = $_REQUEST['id'];
-                        $db = new mysqli('localhost','root','','practica01');
-                        $borraUsuario = $db->query("DELETE FROM usuarios WHERE id = $id");
-    
-                        echo "<script>location.href='index.php?do=showUser'</script>"; 
-                    }else{
-                        echo "Error en el borrado.";
-                    }
-                    */
+      
 
                 }
 

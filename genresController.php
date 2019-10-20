@@ -18,7 +18,7 @@ public function main(){
     }else{
         $do = ""; // si no hay sesion abierta vamos a la mainpage
     } 
-    $this->$do();  //con esto ejecutamos do 
+    $this->$do();  //con esto ejecutamos do dfg
 }
 private function insertGenres(){
     $data["description"] = $_REQUEST["description"];
@@ -31,3 +31,4 @@ private function insertGenres(){
     }
 }
 }
+//dfgf
