@@ -4,7 +4,7 @@ include("view.php");
 include("models/user.php");
 include("models/security.php");
 
-class Controller{
+class UserController{
 
     protected $user, $security;
 
@@ -23,7 +23,7 @@ class Controller{
 
     private function showMainPage() {
 
-        View::show("mainPage");
+        View::show("views","mainPage");
     }
 
     private function showFormNewUser(){
@@ -34,7 +34,7 @@ class Controller{
             $data["tipo"] = $tipo;
         }            */
         
-        View::show("formNewUser", $data);
+        View::show("views","formNewUser");
     }
 
     private function processNewUser(){
@@ -87,7 +87,7 @@ class Controller{
                    echo " no me ha cogido el tipo de usuario, estoy en el else de processUser<br/>";
 
                 $data['mensaje'] = "Eror al insertar usuario"; 
-                View::show("FormNewUser", $data);
+                View::show("views","FormNewUser", $data);
                }           
     }
 
@@ -105,7 +105,7 @@ class Controller{
             $data["listaUsuarios"] = $this->user->getAll();
             $data["tipoUsuario"] = $this->security->get("tipo");
 
-            View::show("showUserAdmin", $data);
+            View::show("views","showUserAdmin", $data);
 
         } else  if($this->security->get("tipo") == 1){ // eres usuario 
 
@@ -115,10 +115,10 @@ class Controller{
             $data["tipoUsuario"] = $this->security->get("tipo");
             var_dump($data);
           //$u = $this->user->getOneUser(); 
-            View::show("showUserAdmin", $data);            
+            View::show("views","showUserAdmin", $data);            
      }else {                           
          //echo "Error. Usuario no reconocido.";
-         View::show("showFormLogin");
+         View::show("views","showFormLogin");
 
          }
     }
@@ -126,7 +126,7 @@ class Controller{
         private function login(){
 
             $data["mensaje"] = "usuario no reconocido";
-            View::show("showFormLogin", $data);
+            View::show("views","showFormLogin", $data);
 
          }
 
@@ -194,7 +194,7 @@ class Controller{
             session_destroy();
             $data["mensaje"] = "Sesión cerrada con éxito";
 
-            View::show("mainPage", $data);         
+            View::show("views","mainPage", $data);         
          }
 
         private function showUserEdit(){
@@ -206,7 +206,7 @@ class Controller{
 
             $data["editaUsuario"] = $this->user->get($id);
             echo "verEdit del user me ha devuelto una fila<br/>";
-            View::show("formEdit", $data);
+            View::show("views","formEdit", $data);
         }
 
         private function edit(){
@@ -239,10 +239,10 @@ class Controller{
                     View::redirect('showUser');
                 }else if( $data["editandoUsuario"] && $this->security->get("tipo") == 1){
                     $data['mensaje'] = "Usuario modificado con éxito<br/>";
-                    View::show('showFormLogin', $data);
+                    View::show("views",'showFormLogin', $data);
                 }else if( $data["editandoUsuario"] = 0 && $this->security->get("tipo") == 0){
                     $data['mensaje'] = "Error modificando<br/>";
-                    View::show('showUserAdmin', $data);
+                    View::show("views",'showUserAdmin', $data);
                 }
             }
 
@@ -270,10 +270,10 @@ class Controller{
                             View::redirect('showUser');
                         }else if($userDelete && $this->security->get("tipo") == 1){
                             $data['mensaje'] = "Usuario borrado con éxito<br/>";
-                            View::show('showFormLogin', $data);
+                            View::show("views",'showFormLogin', $data);
                         }else if($userDelete = 0 && $this->security->get("tipo") == 0){
                             $data['mensaje'] = "Error en el borrado<br/>";
-                            View::show('showUserAdmin', $data);
+                            View::show("views",'showUserAdmin', $data);
                         }
 
 

@@ -21,10 +21,10 @@
     }*/
  
     class View {
-        public static function show($viewName, $data=null) { //para mostrarnos las vistas que vamos creando
-            include("views/header.php");
-            include("views/$viewName.php");
-            include("views/footer.php");  
+        public static function show($fileName,$viewName, $data=null) { //para mostrarnos las vistas que vamos creando
+            include("$fileName/header.php");
+            include("$fileName/$viewName.php");
+            include("$fileName/footer.php");  
         }
 
         public static function redirect($actionName, $data=null) { // para redirigirnos al siguiente paso cuando vamos con un href o location

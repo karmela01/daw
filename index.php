@@ -1,4 +1,7 @@
 <?php  
-    include("controller.php");
-    $controller = new Controller();
-    $controller->main();
+    //include("userController.php");
+    include("movieController.php");
+    //$userController = new UserController();
+    //$userController->main();
+    $movieController = new MovieController();
+    $movieController->main();
