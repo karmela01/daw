@@ -11,7 +11,7 @@ echo"
 <form action= 'index.php' method= 'get'>
 <input type = 'hidden' name = 'do' value= 'insertMovie'  ><br/>
 
-Name<input type = 'text' class='form-control' name = 'title' value= ''  ><br/>
+Title<input type = 'text' class='form-control' name = 'title' value= ''  ><br/>
 Year<input type = 'text' class='form-control' name = 'year' value= ''  ><br/>
 Duration<input type = 'text' class='form-control' name = 'duration' value= ''  ><br/>
 Rating<input type = 'text' class='form-control' name = 'rating' value= ''  ><br/>

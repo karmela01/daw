@@ -12,7 +12,7 @@ class Movie
         $this->db = new DBAbstract(Config::$dbHost, Config::$dbUser, Config::$dbPassword, Config::$dbName);
     }
 
-    public function insertMovie($data){
+    public function insert($data){
 
         $title = $data["title"];
         $year = $data["year"];
@@ -29,8 +29,7 @@ class Movie
             return true;
         } else {
             return false;
-        }
-    
+        }   
    
      }
     
@@ -46,8 +45,24 @@ class Movie
     }
 
     public function update(){
-        // AQUI VAN LOS $data DEL FORMULARIO CON get
-        // $editaPelicula = $this->db->sqlOther("UPDATE movies SET id = , title =  , year = , duration =  , rating = , cover =  , filepath =  , filename =  , external_url= ")
+        $id = $data["id"];
+        $title = $data["title"];
+        $year = $data["duration"];
+        $rating = $data["rating"];
+        $cover = $data["cover"];
+        $filename = $data["filename"];
+        $filepath = $data["filepath"];
+        $external_url = $data["external_url"];
+
+        $editaMovie = $this->db->sqlOther("UPDATE movies SET id = '$id', title = '$title', year = '$year', rating = '$rating', cover = '$cover', filename = '$filename', filepath = '$filepath', external_url = '$external_url'");
+
+        if($edtitaMovie ==1){
+            $edit = true;
+        }else{
+            $edit = false;
+        }
+        return $edit;
+      
 
     }
 }
