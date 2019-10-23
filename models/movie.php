@@ -51,19 +51,31 @@ class Movie
         $id = $data["id"];
         $title = $data["title"];
         $year = $data["year"];
-        $year = $data["duration"];
+        $duration = $data["duration"];
         $rating = $data["rating"];
         $cover = $data["cover"];
         $filename = $data["filename"];
         $filepath = $data["filepath"];
         $external_url = $data["external_url"];
+        var_dump($id);
+        var_dump($title);
         var_dump($year);
+        var_dump($duration);
+        var_dump($rating);
+        var_dump($cover);
+        var_dump($filename);
+        var_dump($filepath);
+        var_dump($external_url);
 
-        $editaMovie = $this->db->sqlOther("UPDATE movies SET id = '$id', title = '$title', year = '$year', rating = '$rating', cover = '$cover', filename = '$filename', filepath = '$filepath', external_url = '$external_url'");
+        //$sql = "UPDATE movies SET id = '$id', title = '$title', year = '$year', rating = '$rating', cover = '$cover', filename = '$filename', filepath = '$filepath', external_url = '$external_url'";
 
-        if($editaMovie ==1){
+        $editaMovie = $this->db->sqlOther("UPDATE movies SET id = '$id', title = '$title', year = '$year', duration = '$duration', rating = '$rating', cover = '$cover', filename = '$filename', filepath = '$filepath', external_url = '$external_url'");
+        
+        if($editaMovie == 1){
+            echo "entra en el primer if, va bien";
             $edit = true;
         }else{
+            echo "entra en el segundo if, va mal";
             $edit = false;
         }
         return $edit;

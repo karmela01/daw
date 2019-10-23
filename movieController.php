@@ -25,13 +25,9 @@ class MovieController{
 
         View::show("viewsMovie","viewAdmin", $data);
     }
-   
-
     private function insertMovie(){
 
         View::show("viewsMovie", "formInsert");
-
-       
     }
 
     private function processInsert(){
@@ -51,6 +47,8 @@ class MovieController{
            
             $data["mensaje"] = "<b>Película insertada con éxito.</b>";
             View::show("viewsMovie","viewAdmin");
+        }else{
+            echo "llega al controller, pero no coge la modificacion en el user";
         }
     }
 
