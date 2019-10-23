@@ -1,6 +1,9 @@
 <?php
 //echo " estoy en formEdit de las vistas<br/>";
 
+$movieToEdit = $data["editMovies"][0];
+ var_dump($movieToEdit);
+
 echo"
  <h3 align = 'center'>Rellene los campos que desee modificar</h3>
 
@@ -10,7 +13,7 @@ echo"
   <input type= 'hidden' name= 'do' value= 'edit'><br/>";
 
 
- $movieToEdit = $data["editMovies"][0];
+ 
 
   
  echo " 
@@ -27,27 +30,27 @@ Name:
 
   Duration:
  
- <input type= 'text' name= 'email' class='form-control' value= '$movieToEdit->duration'><br/>'
+ <input type= 'text' name= 'duration' class='form-control' value= '$movieToEdit->duration'><br/>'
 
   Rating:
 
-  <input type= 'text' name= 'nick' class='form-control' value= '$movieToEdit->rating'><br/>'
+  <input type= 'text' name= 'rating' class='form-control' value= '$movieToEdit->rating'><br/>'
 
   Cover:
 
-<input type= 'text' name= 'pass' class='form-control' value= '$movieToEdit->cover'><br/>'
+<input type= 'text' name= 'cover' class='form-control' value= '$movieToEdit->cover'><br/>'
 
 Filename:
 
-<input type= 'text' name= 'pass' class='form-control' value= '$movieToEdit->filename'><br/>'
+<input type= 'text' name= 'filename' class='form-control' value= '$movieToEdit->filename'><br/>'
 
 Filepath:
 
-<input type= 'text' name= 'pass' class='form-control' value= '$movieToEdit->filepath'><br/>'
+<input type= 'text' name= 'filepath' class='form-control' value= '$movieToEdit->filepath'><br/>'
 
 External_url:
 
-<input type= 'text' name= 'pass' class='form-control' value= '$movieToEdit->external_url'><br/>'
+<input type= 'text' name= 'external_url' class='form-control' value= '$movieToEdit->external_url'><br/>'
 
   
 

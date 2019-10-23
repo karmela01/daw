@@ -15,20 +15,26 @@ class MovieController{
     public function main(){
         if(isset($_REQUEST["do"])){
             $do = $_REQUEST["do"];
-        }else {$do = "home";
+        }else {
+            $do = "home";
         }
         $this->$do();
     }
     private function home(){
         $data["verPeliculas"] = $this->movie->getAll();
 
-        View::show("viewsMovie","main", $data);
+        View::show("viewsMovie","viewAdmin", $data);
     }
    
 
     private function insertMovie(){
 
         View::show("viewsMovie", "formInsert");
+
+       
+    }
+
+    private function processInsert(){
 
         $data["title"] = $_REQUEST["title"];
         $data["year"] = $_REQUEST["year"];
@@ -44,18 +50,18 @@ class MovieController{
         if($resultInsert == 1){
            
             $data["mensaje"] = "<b>Película insertada con éxito.</b>";
-            View::show("viewsMovie","main", $data);
+            View::show("viewsMovie","viewAdmin");
         }
-
     }
 
     private function showEditMovies(){
         
         $id = $_REQUEST["id"];
+        var_dump($id);
 
-        $data["ShowEditMovies"] = $this->movie->get($id);
+        $data["editMovies"] = $this->movie->get($id);
 
-        View::show("viewsMovie", "formEdit");
+        View::show("viewsMovie", "formEdit", $data);
    }
     private function edit(){
 

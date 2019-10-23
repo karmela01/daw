@@ -38,25 +38,30 @@ class Movie
         return $seleccionaTodas;
     }
     public function get($id){
-        $seleccionaUna = $this->db->sqlSelect("SELECT * FROM movies WHERE id = $id");
+       
+        $seleccionaUna = $this->db->sqlSelect("SELECT * FROM movies WHERE id = '$id'");
+        return $seleccionaUna;
     }
     public function delete($id){
-        $borraPelicula = $this->db->sqlOther("DELETE * FROM movies WHERE id = $id");
+        $borraPelicula = $this->db->sqlOther("DELETE * FROM movies WHERE id = '$id'");
     }
 
-    public function update(){
+    public function update($data){
+
         $id = $data["id"];
         $title = $data["title"];
+        $year = $data["year"];
         $year = $data["duration"];
         $rating = $data["rating"];
         $cover = $data["cover"];
         $filename = $data["filename"];
         $filepath = $data["filepath"];
         $external_url = $data["external_url"];
+        var_dump($year);
 
         $editaMovie = $this->db->sqlOther("UPDATE movies SET id = '$id', title = '$title', year = '$year', rating = '$rating', cover = '$cover', filename = '$filename', filepath = '$filepath', external_url = '$external_url'");
 
-        if($edtitaMovie ==1){
+        if($editaMovie ==1){
             $edit = true;
         }else{
             $edit = false;

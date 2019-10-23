@@ -9,7 +9,7 @@ if(isset($data["mensaje"])) {
 echo"
 
 <form action= 'index.php' method= 'get'>
-<input type = 'hidden' name = 'do' value= 'insertMovie'  ><br/>
+<input type = 'hidden' name = 'do' value= 'processInsert'  ><br/>
 
 Title<input type = 'text' class='form-control' name = 'title' value= ''  ><br/>
 Year<input type = 'text' class='form-control' name = 'year' value= ''  ><br/>

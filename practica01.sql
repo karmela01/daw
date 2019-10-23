@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2019 a las 21:09:30
--- Versión del servidor: 10.1.40-MariaDB
--- Versión de PHP: 7.3.5
+-- Tiempo de generación: 23-10-2019 a las 12:53:16
+-- Versión del servidor: 10.1.35-MariaDB
+-- Versión de PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -68,27 +68,17 @@ CREATE TABLE `movies` (
 
 INSERT INTO `movies` (`id`, `title`, `year`, `duration`, `rating`, `cover`, `filepath`, `filename`, `external_url`) VALUES
 (1, 'primera peli', 2019, 120, 4, 'lleva a portada', 'tampoco', 'ni idea', 'lo mismo'),
-(2, 'primera peli', 2019, 120, 4, 'lleva a portada', 'tampoco', 'ni idea', 'lo mismo'),
-(3, 'primera peli', 2019, 120, 4, 'lleva a portada', 'tampoco', 'ni idea', 'lo mismo'),
-(4, 'primera peli', 2019, 120, 4, 'lleva a portada', 'tampoco', 'ni idea', 'lo mismo'),
-(5, 'primera peli', 2019, 120, 4, 'lleva a portada', 'tampoco', 'ni idea', 'lo mismo'),
-(6, 'primera peli', 2019, 120, 4, 'lleva a portada', 'tampoco', 'ni idea', 'lo mismo'),
-(7, 'primera peli', 2019, 120, 4, 'lleva a portada', 'tampoco', 'ni idea', 'lo mismo'),
-(8, 'primera peli', 2019, 120, 4, 'lleva a portada', 'tampoco', 'ni idea', 'lo mismo'),
-(9, 'primera peli', 2019, 120, 4, 'lleva a portada', 'tampoco', 'ni idea', 'lo mismo'),
-(10, '', 0, 0, 0, '', '', '', ''),
-(11, '', 0, 0, 0, '', '', '', ''),
-(12, '', 0, 0, 0, '', '', '', ''),
-(13, '', 0, 0, 0, '', '', '', ''),
-(14, '', 0, 0, 0, '', '', '', ''),
-(15, '', 0, 0, 0, '', '', '', ''),
-(16, '', 0, 0, 0, '', '', '', ''),
-(17, '', 0, 0, 0, '', '', '', ''),
-(18, '', 0, 0, 0, '', '', '', ''),
-(19, '', 0, 0, 0, '', '', '', ''),
-(20, '', 0, 0, 0, '', '', '', ''),
-(21, '', 0, 0, 0, '', '', '', ''),
-(22, '', 0, 0, 0, '', '', '', '');
+(28, 'pelicula2', 2019, 100, 3, 'dondesea', 'sdfj', 'djlaskdjfa', 'kljfd'),
+(29, 'pelicula2', 2019, 100, 3, 'dondesea', 'sdfj', 'djlaskdjfa', 'kljfd'),
+(30, 'pelicula2', 2019, 100, 3, 'dondesea', 'sdfj', 'djlaskdjfa', 'kljfd'),
+(31, '', 0, 0, 0, '', '', '', ''),
+(32, '', 0, 0, 0, '', '', '', ''),
+(33, '', 0, 0, 0, '', '', '', ''),
+(34, '', 0, 0, 0, '', '', '', ''),
+(35, '', 0, 0, 0, '', '', '', ''),
+(36, 'pelicula3', 2019, 95, 4, 'ver imagen', 'jkhf', 'sakdjh', 'kjhf'),
+(37, 'pelicula3', 2019, 95, 4, 'ver imagen', 'jkhf', 'sakdjh', 'kjhf'),
+(38, 'pelicula3', 2019, 95, 4, 'ver imagen', 'jkhf', 'sakdjh', 'kjhf');
 
 -- --------------------------------------------------------
 
@@ -224,7 +214,7 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT de la tabla `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `people`
