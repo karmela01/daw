@@ -9,6 +9,7 @@ if(isset($data["mensaje"])) {
 echo"
 
 <form action= 'index.php' method= 'get'>
+<input type='hidden' name='controller' value='MovieController'>
 <input type = 'hidden' name = 'do' value= 'processInsert'  ><br/>
 
 Title<input type = 'text' class='form-control' name = 'title' value= ''  ><br/>
@@ -23,10 +24,11 @@ External_url<input type = 'text' class='form-control' name = 'external_url' valu
 
 <input type='submit' class='btn btn-primary' name = 'enviar' value='Insertar' >
 
-<!--<input type = 'submit' class='btn btn-danger' name = 'volver' value ='<a href='index.php?do=prueba'>'Volver donde sea'</a>'> -->
+<!--<input type = 'submit' class='btn btn-danger' name = 'volver' value ='<a href='index.php?controller=MovieController&do=prueba'>'Volver donde sea'</a>'> -->
 </form>
          
 <form action='index.php' method='get'>
+<input type='hidden' name='controller' value='MovieController'>
 <input type='hidden' name='do' value='prueba'>
 <input type='submit'class='btn btn-danger' name = 'volver' value = 'Volver donde sea'><br/>
  </form>        

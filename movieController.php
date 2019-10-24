@@ -1,7 +1,9 @@
 <?php
-include("view.php");
+
+//include("view.php");
 include("models/movie.php");
-include("models/security.php");
+
+
 
 class MovieController{
     protected $movie, $security;
@@ -10,9 +12,11 @@ class MovieController{
 
         $this->movie = new Movie();
         $this->security = new Security();
+        
     }
 
     public function main(){
+        
         if(isset($_REQUEST["do"])){
             $do = $_REQUEST["do"];
         }else {
@@ -21,9 +25,21 @@ class MovieController{
         $this->$do();
     }
     private function home(){
+
+       $data["verPeliculas"] = $this->movie->getAll();
+
+        View::show("viewsMovie","viewAdmin", $data);
+    }
+
+    private function showAdmin(){
         $data["verPeliculas"] = $this->movie->getAll();
 
         View::show("viewsMovie","viewAdmin", $data);
+    }
+
+    private function login(){
+        
+        View::show("views", "showFormLogin");       
     }
     private function insertMovie(){
 
@@ -81,6 +97,19 @@ class MovieController{
             //pendiente de añadir dónde vamos después
 
         }
+    }
+
+    private function delete(){
+
+        $id = $_REQUEST['id'];
+        var_dump($id);
+
+        $movieDelete = $this->movie->delete($id);
+
+        if($movieDelete){
+            View::redirect("home");
+        }
+
     }
    
     private function prueba(){

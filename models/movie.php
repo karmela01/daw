@@ -1,10 +1,9 @@
 <?php
-include("dbabstract.php");
-include("config.php");
+include_once("dbabstract.php");
+//include("config.php");
 
 class Movie
 {
-
     private $db;
 
     public function __construct(){
@@ -29,8 +28,7 @@ class Movie
             return true;
         } else {
             return false;
-        }   
-   
+        }  
      }
     
     public function getAll(){
@@ -40,10 +38,20 @@ class Movie
     public function get($id){
        
         $seleccionaUna = $this->db->sqlSelect("SELECT * FROM movies WHERE id = '$id'");
-        return $seleccionaUna;
+        
     }
     public function delete($id){
-        $borraPelicula = $this->db->sqlOther("DELETE * FROM movies WHERE id = '$id'");
+
+        $borraPelicula = $this->db->sqlOther("DELETE FROM movies WHERE id = '$id'");
+
+        if($borraPelicula == 1){
+            echo "entra en el primer if, va bien";
+            $borrado = true;
+        }else{
+            echo "entra en el segundo if, va mal";
+            $borrado = false;
+        }
+        return $borrado;
     }
 
     public function update($data){
@@ -57,25 +65,14 @@ class Movie
         $filename = $data["filename"];
         $filepath = $data["filepath"];
         $external_url = $data["external_url"];
-        var_dump($id);
-        var_dump($title);
-        var_dump($year);
-        var_dump($duration);
-        var_dump($rating);
-        var_dump($cover);
-        var_dump($filename);
-        var_dump($filepath);
-        var_dump($external_url);
 
-        //$sql = "UPDATE movies SET id = '$id', title = '$title', year = '$year', rating = '$rating', cover = '$cover', filename = '$filename', filepath = '$filepath', external_url = '$external_url'";
-
-        $editaMovie = $this->db->sqlOther("UPDATE movies SET id = '$id', title = '$title', year = '$year', duration = '$duration', rating = '$rating', cover = '$cover', filename = '$filename', filepath = '$filepath', external_url = '$external_url'");
+        $editaMovie = $this->db->sqlOther("UPDATE movies SET id = '$id', title = '$title', year = '$year', duration = '$duration', rating = '$rating', cover = '$cover', filename = '$filename', filepath = '$filepath', external_url = '$external_url' WHERE id = '$id'");
         
         if($editaMovie == 1){
-            echo "entra en el primer if, va bien";
+          
             $edit = true;
         }else{
-            echo "entra en el segundo if, va mal";
+           
             $edit = false;
         }
         return $edit;

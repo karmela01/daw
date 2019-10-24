@@ -1,5 +1,5 @@
 <?php
-//include("config.php");
+
 include("view.php");
 include("models/user.php");
 include("models/security.php");
@@ -102,10 +102,12 @@ class UserController{
 
             echo "entro por el primer if de usuario administrador<br/>";
 
-            $data["listaUsuarios"] = $this->user->getAll();
+            //$data["listaUsuarios"] = $this->user->getAll();
             $data["tipoUsuario"] = $this->security->get("tipo");
 
-            View::show("views","showUserAdmin", $data);
+            View::redirect("selectView");
+
+            //View::show("views","showUserAdmin", $data);
 
         } else  if($this->security->get("tipo") == 1){ // eres usuario 
 
@@ -123,96 +125,58 @@ class UserController{
          }
     }
 
-        private function login(){
+        private function selectView(){
 
+            View::show("views","select");
+
+        }
+
+        private function login(){
+           
             $data["mensaje"] = "usuario no reconocido";
             View::show("views","showFormLogin", $data);
 
          }
 
         private function processLogin(){
-
-            echo "estoy en controller processLogin<br/>";
-
-           //session_destroy();
-           // echo "cierro la sesion para empezar de nuevo";
-
-            
+            echo"processLogin";
 
            $userNick = $_REQUEST['nick']; // meto el dato del formulario en una variable data
            $userPass = $_REQUEST['pass'];
-               
-            //$data['nick'] = $_REQUEST['nick']; // meto el dato del formulario en una variable data
-            //$data['pass'] = $_REQUEST['pass'];
-            //var_dump($data);
-            echo"hago la consulta a user<br/>";
             
-            $userExist = $this->user->getLogin($userNick, $userPass); 
-            /*aqui utilizamos $userExist que viene de la clase user
-            es quien nos dice si el usuario existe o no con true o false
-            y crea las variables de sesion si es true. todo eso está en
-            user -> getLogin  */
-            echo "he llegado al primer if de controller - processlogin<br/>";      
+            $userExist = $this->user->getLogin($userNick, $userPass);     
 
             if($userExist != null){
-                
-                //AQUI CUELO LA CREACION DE LAS VARIABLES DE SESION CON LA CAPA SECURITY
-                //Y LAS QUITO DEL USER 
                
                 $this->security->openSession(["id" => $userExist->id, "tipo" => $userExist->tipo]);
-    
-                echo "acabo de entrar en el if del controller<br/>";
-                
+                echo"user getlogin devuelve el tipo de usuario";
                 View::redirect("showUser");
-                var_dump($data);
-                echo "no me coge el if del controller<br/>";
-            
-
-           /*$data["userLog"] = $this->user->login($data); //llamo a la consulta a la db  
-           if ($data["userLog"] != null)     //si existe el usuario logueado  
-            $fila = $data["userLog"];
-            $_SESSION["tipo"] = $fila->tipo;
-            $_SESSION["id"] = $fila->id;
-             View::redirect("showUser");*/    
-             
            
             } else {
-                // El usuario no existe o el SQL ha fallado. Le enviamos al login pero con un mensaje de error.
-                //echo "<script>location.href='index.php?do=login&mensaje=".urlencode("Error de login")."'</script>";
-                echo "entra en el else del controller, algo va mal";
+                echo"user getlogin no devuelve nada";
                 $data["mensaje"]= "Usuario no encontrado";
-                //View::show("showFormLogin", $data);
-                var_dump($data);
+              
                 View::redirect("login");
-          }   
-          echo "he salido del  controller - processlogin<br/>";   
-          
-          
+          }
          }
          private function logOut(){           
            
             session_destroy();
             $data["mensaje"] = "Sesión cerrada con éxito";
 
-            View::show("views","mainPage", $data);         
+            //View::show("views","mainPage", $data);         
          }
 
         private function showUserEdit(){
-            
-            echo "estoy en showUserEdit del controller<br/>";
 
             $id = $_REQUEST["id"];
-            var_dump($id);
-
+           
             $data["editaUsuario"] = $this->user->get($id);
-            echo "verEdit del user me ha devuelto una fila<br/>";
             View::show("views","formEdit", $data);
         }
 
         private function edit(){
-
-                //$id = $_REQUEST['id'];
-           echo "estoy en edit del controller e intento modificar </br>";
+         
            $data["id"] = $_REQUEST['id'];
             
                 $data["nombre"] = $_REQUEST['nombre'];
@@ -227,14 +191,9 @@ class UserController{
                         $_REQUEST['tipo']= 1;
                         $data["tipo"] = $_REQUEST['tipo'];
                     }
-             echo"envio la modificacion a la base de datos user edit <br/>";
-
                 $data["editandoUsuario"]= $this->user->update($data);
-                
-            echo "vuelvo al edit del controller <br/>";
 
                 if($data["editandoUsuario"] && $this->security->get("tipo") == 0){
-                    echo "el usuario ha sido modificado<br/>";
                     $data['mensaje'] = "Usuario modificado con éxito<br/>";
                     View::redirect('showUser');
                 }else if( $data["editandoUsuario"] && $this->security->get("tipo") == 1){
@@ -247,17 +206,8 @@ class UserController{
             }
 
             private function delete(){
-                    echo " estoy en delete del controller <br/>";   
-                    
-                   
-                   // if(isset($_SESSION["tipo"]) && $_SESSION["tipo"]== 0)
-                       // echo "estoy en el primer if de delete en user, el usuario es administrador<br/>";
                        $id = $_REQUEST['id'];
-
-                        //var_dump($_REQUEST[$id]);
-                        //$id = $_SESSION['id'];
                         var_dump($id);
-
                        
                         $userDelete = $this->user->delete($id); 
                        

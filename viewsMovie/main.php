@@ -11,19 +11,21 @@ echo "
           
       echo "
       <td>".$pelicula->id."<td> ".$pelicula->title."<td> ".$pelicula->year." <td>".$pelicula->duration."<td> ".$pelicula->rating." <td>".$pelicula->cover." <td>".$pelicula->filename." <td>".$pelicula->filepath." <td>".$pelicula->external_url;
-        echo "<td><a href='index.php?do=showEditMovies&id=$pelicula->id'>Modificar</a>
-        <td><a href='index.php?do=delete&id=$pelicula->id'>Borrar</a>
+        echo "<td><a href='index.php?controller=MovieController&do=showEditMovies&id=$pelicula->id'>Modificar</a>
+        <td><a href='index.php?controller=MovieController&do=delete&id=$pelicula->id'>Borrar</a>
         </td>
         </tr>";
          } 
          echo "</table>
        
          <form action='index.php' method='get'>
+         <input type='hidden' name='controller' value='MovieController'>
          <input type='hidden' name='do' value='insertMovie'>
          <input type='submit' name= 'nuevo' value= 'Insertar'><br/>
           </form>        
          <br>
          <form action='index.php' method='get'>
+         <input type='hidden' name='controller' value='MovieController'>
          <input type='hidden' name='do' value='logOut'>
          <input type='submit' name= 'salir' value= 'Salir'><br/>
           </form>";

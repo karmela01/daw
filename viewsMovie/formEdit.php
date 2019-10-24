@@ -9,6 +9,7 @@ echo"
  <form action= 'index.php' method= 'get'>
  <div class='row'>
   <div class='col'>
+  <input type='hidden' name='controller' value='MovieController'>
   <input type= 'hidden' name= 'do' value= 'edit'><br/>
 
     <input type= 'hidden' name= 'id' class='form-control' value ='$movieToEdit->id'><br/>'
