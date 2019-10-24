@@ -4,14 +4,14 @@ echo "<h3 align = center>Login</h3><br/>";
 if(isset($data["mensaje"])) {
     echo $data["mensaje"];
 }
-    echo "Introduzca usuario y contraseña para entrar.<br/>";
+    echo "<h5 align = center>Introduzca usuario y contraseña para entrar.</h5><br/>";
        
             echo "            
                     <br/>
-                    <form action='index.php' method='get'>
+                    <form align = center action='index.php' method='get'>
                     <div class='row'>
                     <div class='col'>
-                    <input type='hidden' name='controller' value='UserController'>
+                    <input type='hidden' name='controller' value='userController'>
                     <input type='hidden' name='do' value='processLogin'>
 
                         Nick:
@@ -29,7 +29,7 @@ if(isset($data["mensaje"])) {
                     <input type='button' class='btn btn-secondary' value='Volver a inicio' name='salir' OnClick='location.href='index.php''>";
 
                     echo "
-                    <form action='index.php' method='get'>
+                    <form align = center action='index.php' method='get'>
                     <input type='hidden' name='controller' value='UserController'>
                     <input type='hidden' name='do' value='logOut'>
                     <input type='submit' name= 'salir' value= 'Salir'><br/>

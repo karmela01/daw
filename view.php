@@ -7,8 +7,8 @@
             include("$fileName/footer.php");  
         }
 
-        public static function redirect($actionName, $data=null) { // para redirigirnos al siguiente paso cuando vamos con un href o location
-            $url = "<script>location.href='index.php?do=$actionName'";
+        public static function redirect($fileName,$actionName, $data=null) { // para redirigirnos al siguiente paso cuando vamos con un href o location
+            $url = "<script>location.href='index.php?controller=$fileName&do=$actionName'";
             if ($data != null) {
                 foreach ($data as $clave=>$valor) {
                     $url = $url . "&" . $clave . "=" . $valor;

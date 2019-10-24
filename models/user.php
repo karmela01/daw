@@ -1,5 +1,5 @@
 <?php
-include("config.php");
+include_once("config.php");
 include_once("dbabstract.php");
 
 class User

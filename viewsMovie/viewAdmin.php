@@ -5,9 +5,9 @@ echo "
 
 
 <form align = right action='index.php' method='get'>
-     <input type='hidden' name='controller' value='UserController'>
+     <input type='hidden' name='controller' value='userController'>
      <input type='hidden' name='do' value='login'>
-     <input type='submit' name= 'nuevo' value= 'Login'><br/>
+     <input type='submit' name= 'registro' value= 'Login'><br/>
       </form>        
      <br>
 
@@ -27,7 +27,7 @@ echo "
      echo "</table>
    
      <form action='index.php' method='get'>
-     <input type='hidden' name='controller' value='MovieController'>
+     <input type='hidden' name='controller' value='movieController'>
      <input type='hidden' name='do' value='insertMovie'>
      <input type='submit' name= 'nuevo' value= 'Insertar'><br/>
       </form>        

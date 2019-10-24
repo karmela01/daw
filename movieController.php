@@ -1,7 +1,8 @@
 <?php
 
-//include("view.php");
-include("models/movie.php");
+include_once("view.php");
+include_once("models/movie.php");
+include_once("models/security.php");
 
 
 
@@ -37,10 +38,11 @@ class MovieController{
         View::show("viewsMovie","viewAdmin", $data);
     }
 
-    private function login(){
-        
-        View::show("views", "showFormLogin");       
-    }
+    /*private function login(){
+
+       
+        View::redirect("userController", "login");   
+    }*/
     private function insertMovie(){
 
         View::show("viewsMovie", "formInsert");
@@ -62,7 +64,7 @@ class MovieController{
         if($resultInsert == 1){
            
             $data["mensaje"] = "<b>Película insertada con éxito.</b>";
-            View::show("viewsMovie","viewAdmin");
+            View::show("viewsMovie","viewAdmin", $data);
         }else{
             echo "llega al controller, pero no coge la modificacion en el user";
         }
@@ -93,7 +95,7 @@ class MovieController{
 
         if($data["editMovies"]){
 
-            View::redirect("home");
+            View::redirect("movieController","home");
             //pendiente de añadir dónde vamos después
 
         }
@@ -107,7 +109,7 @@ class MovieController{
         $movieDelete = $this->movie->delete($id);
 
         if($movieDelete){
-            View::redirect("home");
+            View::redirect("movieController","home");
         }
 
     }
@@ -121,4 +123,4 @@ class MovieController{
 
    
 }
-//fgh
+

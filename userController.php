@@ -1,8 +1,8 @@
 <?php
 
-include("view.php");
-include("models/user.php");
-include("models/security.php");
+include_once("view.php");
+include_once("models/user.php");
+include_once("models/security.php");
 
 class UserController{
 
@@ -71,7 +71,7 @@ class UserController{
             echo " entro por el primer if de processUser y el usuario que ha insertdo los registros es adminstrador<br/>";
 
                //$data['mensaje'] = "Usuario insertado con exito";
-               View::redirect("showUser");
+               View::redirect("userController","showUser");
                //View::redirect("showUserAdmin", $data);
                } //else if($resultProcess == 1 && $data['tipo'] == 1)   //pruebo a cambiar el $data['tipo'], que es del usuario ,por la variable de sesión de quen lo ha insertado
                else if($resultProcess == 1 && $this->security->get("tipo") == 1){    // se usa data para guardar el tipo de usuario 
@@ -80,7 +80,7 @@ class UserController{
 
                 //$data['mensaje'] = "Usuario insertado con exito";
                 //$data = $_SESSION['tipo'] = 1;
-                View::redirect("showUser");
+                View::redirect("userController","showUser");
                 //View::redirect("showUserBase", $data);//se usa data para enviar un mensaje
                } else{
 
@@ -92,6 +92,7 @@ class UserController{
     }
 
     private function showUser(){
+        /*
 
         echo"estoy en showuser del controller<br/>";
         
@@ -102,12 +103,26 @@ class UserController{
 
             echo "entro por el primer if de usuario administrador<br/>";
 
-            //$data["listaUsuarios"] = $this->user->getAll();
+            $data["listaUsuarios"] = $this->user->getAll();
             $data["tipoUsuario"] = $this->security->get("tipo");
 
-            View::redirect("selectView");
+            //View::redirect("userController","selectView");
 
-            //View::show("views","showUserAdmin", $data);
+            View::show("views","showUserAdmin", $data);*/
+
+            echo"estoy en showuser del controller<br/>";
+        
+       
+
+        if ($this->security->get("tipo") == 0) { //condicion de seguridad eres administrador
+            // Hay abierta una sesión de administrador
+
+            echo "entro por el primer if de usuario administrador<br/>";
+
+            $data["listaUsuarios"] = $this->user->getAll();
+            $data["tipoUsuario"] = $this->security->get("tipo");
+
+            View::show("views","showUserAdmin", $data);
 
         } else  if($this->security->get("tipo") == 1){ // eres usuario 
 
@@ -133,8 +148,8 @@ class UserController{
 
         private function login(){
            
-            $data["mensaje"] = "usuario no reconocido";
-            View::show("views","showFormLogin", $data);
+          //  $data["mensaje"] = "usuario no reconocido";
+            View::show("views","showFormLogin");
 
          }
 
@@ -150,21 +165,22 @@ class UserController{
                
                 $this->security->openSession(["id" => $userExist->id, "tipo" => $userExist->tipo]);
                 echo"user getlogin devuelve el tipo de usuario";
-                View::redirect("showUser");
+               //View::redirect("userController","showUser");
+               View::redirect("userController","selectView");
            
             } else {
                 echo"user getlogin no devuelve nada";
                 $data["mensaje"]= "Usuario no encontrado";
               
-                View::redirect("login");
+                View::redirect("userController","login");
           }
          }
          private function logOut(){           
            
             session_destroy();
-            $data["mensaje"] = "Sesión cerrada con éxito";
+            //$data["mensaje"] = "Sesión cerrada con éxito";
 
-            //View::show("views","mainPage", $data);         
+            View::redirect("movieController","showAdmin",);         
          }
 
         private function showUserEdit(){
@@ -195,7 +211,7 @@ class UserController{
 
                 if($data["editandoUsuario"] && $this->security->get("tipo") == 0){
                     $data['mensaje'] = "Usuario modificado con éxito<br/>";
-                    View::redirect('showUser');
+                    View::redirect("userController",'showUser');
                 }else if( $data["editandoUsuario"] && $this->security->get("tipo") == 1){
                     $data['mensaje'] = "Usuario modificado con éxito<br/>";
                     View::show("views",'showFormLogin', $data);
@@ -217,7 +233,7 @@ class UserController{
                         if($userDelete && $this->security->get("tipo") == 0){
                             echo "el usuario ha sido borrado<br/>";
                             $data['mensaje'] = "Usuario borrado con éxito<br/>";
-                            View::redirect('showUser');
+                            View::redirect("userController",'showUser');
                         }else if($userDelete && $this->security->get("tipo") == 1){
                             $data['mensaje'] = "Usuario borrado con éxito<br/>";
                             View::show("views",'showFormLogin', $data);

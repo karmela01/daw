@@ -1,6 +1,6 @@
 <?php
 include_once("dbabstract.php");
-//include("config.php");
+include_once("config.php");
 
 class Movie
 {
@@ -36,8 +36,17 @@ class Movie
         return $seleccionaTodas;
     }
     public function get($id){
+        var_dump("$id");
        
         $seleccionaUna = $this->db->sqlSelect("SELECT * FROM movies WHERE id = '$id'");
+        /*if($seleccionaUna == 1){
+            echo "entra en el primer if, va bien";
+            $seleccionada = true;
+        }else{
+            echo "entra en el segundo if, va mal";
+            $seleccionada = false;
+        }*/
+        return $seleccionaUna;
         
     }
     public function delete($id){
@@ -55,6 +64,7 @@ class Movie
     }
 
     public function update($data){
+        echo"la petición llega del controlador al update de movie";
 
         $id = $data["id"];
         $title = $data["title"];
@@ -69,7 +79,7 @@ class Movie
         $editaMovie = $this->db->sqlOther("UPDATE movies SET id = '$id', title = '$title', year = '$year', duration = '$duration', rating = '$rating', cover = '$cover', filename = '$filename', filepath = '$filepath', external_url = '$external_url' WHERE id = '$id'");
         
         if($editaMovie == 1){
-          
+          echo "actualiza el registro";
             $edit = true;
         }else{
            
