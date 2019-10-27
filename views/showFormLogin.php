@@ -1,12 +1,12 @@
 <?php
 
-echo "<h3 align = center>Login</h3><br/>";   
-if(isset($data["mensaje"])) {
+echo "<h3 align = center>Login</h3><br/>";
+if (isset($data["mensaje"])) {
     echo $data["mensaje"];
 }
-    echo "<h5 align = center>Introduzca usuario y contraseña para entrar.</h5><br/>";
-       
-            echo "            
+echo "<h5 align = center>Introduzca usuario y contraseña para entrar.</h5><br/>";
+
+echo "            
                     <br/>
                     <form align = center action='index.php' method='get'>
                     <div class='row'>
@@ -26,9 +26,9 @@ if(isset($data["mensaje"])) {
                     <br/>
                     <br/>
                   
-                    <input type='button' class='btn btn-secondary' value='Volver a inicio' name='salir' OnClick='location.href='index.php''>";
+                   <!-- <input type='button' class='btn btn-secondary' value='Volver a inicio' name='salir' OnClick='location.href='index.php''>-->";
 
-                    echo "
+echo "
                     <form align = center action='index.php' method='get'>
                     <input type='hidden' name='controller' value='UserController'>
                     <input type='hidden' name='do' value='logOut'>

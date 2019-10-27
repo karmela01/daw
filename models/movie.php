@@ -6,12 +6,14 @@ class Movie
 {
     private $db;
 
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->db = new DBAbstract(Config::$dbHost, Config::$dbUser, Config::$dbPassword, Config::$dbName);
     }
 
-    public function insert($data){
+    public function insert($data)
+    {
 
         $title = $data["title"];
         $year = $data["year"];
@@ -28,43 +30,40 @@ class Movie
             return true;
         } else {
             return false;
-        }  
-     }
-    
-    public function getAll(){
+        }
+    }
+
+    public function getAll()
+    {
         $seleccionaTodas = $this->db->sqlSelect("SELECT * FROM movies");
         return $seleccionaTodas;
     }
-    public function get($id){
+    public function get($id)
+    {
         var_dump("$id");
-       
+
         $seleccionaUna = $this->db->sqlSelect("SELECT * FROM movies WHERE id = '$id'");
-        /*if($seleccionaUna == 1){
-            echo "entra en el primer if, va bien";
-            $seleccionada = true;
-        }else{
-            echo "entra en el segundo if, va mal";
-            $seleccionada = false;
-        }*/
+
         return $seleccionaUna;
-        
     }
-    public function delete($id){
+    public function delete($id)
+    {
 
         $borraPelicula = $this->db->sqlOther("DELETE FROM movies WHERE id = '$id'");
 
-        if($borraPelicula == 1){
+        if ($borraPelicula == 1) {
             echo "entra en el primer if, va bien";
             $borrado = true;
-        }else{
+        } else {
             echo "entra en el segundo if, va mal";
             $borrado = false;
         }
         return $borrado;
     }
 
-    public function update($data){
-        echo"la petición llega del controlador al update de movie";
+    public function update($data)
+    {
+        echo "la petición llega del controlador al update de movie";
 
         $id = $data["id"];
         $title = $data["title"];
@@ -77,16 +76,14 @@ class Movie
         $external_url = $data["external_url"];
 
         $editaMovie = $this->db->sqlOther("UPDATE movies SET id = '$id', title = '$title', year = '$year', duration = '$duration', rating = '$rating', cover = '$cover', filename = '$filename', filepath = '$filepath', external_url = '$external_url' WHERE id = '$id'");
-        
-        if($editaMovie == 1){
-          echo "actualiza el registro";
+
+        if ($editaMovie == 1) {
+            echo "actualiza el registro";
             $edit = true;
-        }else{
-           
+        } else {
+
             $edit = false;
         }
         return $edit;
-      
-
     }
 }

@@ -7,10 +7,9 @@ if(isset($data["mensaje"])) {
 }
 
 echo"
-
-<!--<form action= 'index.php' method= 'get'>-->
-<form enctype='multipart/form-data' action= 'index.php' method= 'post'>
-<input type='hidden' name='controller' value='MovieController'>
+<form action= 'index.php' method= 'get'>
+<!--<form enctype='multipart/form-data' action= 'index.php' method= 'POST'>
+<input type='hidden' name='controller' value='MovieController'>-->
 <input type = 'hidden' name = 'do' value= 'processInsert'  ><br/>
 
 
@@ -18,10 +17,9 @@ Title<input type = 'text' class='form-control' name = 'title'><br/>
 Year<input type = 'text' class='form-control' name = 'year'><br/>
 Duration<input type = 'text' class='form-control' name = 'duration'><br/>
 Rating<input type = 'text' class='form-control' name = 'rating'><br/>
-<!--Cover<input type='text' class='form-control' name='cover'>-->
-<input type='hidden' name='MAX_FILE_SIZE' value='200000' >
-Cover<input type='file' class='form-control' name='cover'><br/>
-
+<!--<input type='hidden' name='MAX_FILE_SIZE' value='2000' >
+Cover<input type='file' class='form-control' name='cover'><br/>-->
+Cover<input type='text' class='form-control' name='cover'>
 
 Filename<input type = 'text' class='form-control' name = 'filename' ><br/>
 Filepath<input type = 'text' class='form-control' name = 'filepath'><br/>

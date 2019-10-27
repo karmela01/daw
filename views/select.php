@@ -12,6 +12,8 @@ echo "
           <input type='submit' name= 'user' value= 'Usuarios'><br/>
      </form>
 
+     </br>
+
      <form align = center action='index.php' method='get'>
           <input type='hidden' name='controller' value='movieController'>
           <input type='hidden' name='do' value='showAdmin'>

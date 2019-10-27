@@ -51,7 +51,7 @@ class User
             echo "no devuelve nada";
             return null;
         }
-        return $userExist;
+        //return $userExist;
     }
     public function delete($id){
       
