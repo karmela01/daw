@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2019 a las 12:53:16
--- Versión del servidor: 10.1.35-MariaDB
--- Versión de PHP: 7.2.9
+-- Tiempo de generación: 29-10-2019 a las 18:49:56
+-- Versión del servidor: 10.1.40-MariaDB
+-- Versión de PHP: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -67,18 +67,19 @@ CREATE TABLE `movies` (
 --
 
 INSERT INTO `movies` (`id`, `title`, `year`, `duration`, `rating`, `cover`, `filepath`, `filename`, `external_url`) VALUES
-(1, 'primera peli', 2019, 120, 4, 'lleva a portada', 'tampoco', 'ni idea', 'lo mismo'),
-(28, 'pelicula2', 2019, 100, 3, 'dondesea', 'sdfj', 'djlaskdjfa', 'kljfd'),
-(29, 'pelicula2', 2019, 100, 3, 'dondesea', 'sdfj', 'djlaskdjfa', 'kljfd'),
-(30, 'pelicula2', 2019, 100, 3, 'dondesea', 'sdfj', 'djlaskdjfa', 'kljfd'),
-(31, '', 0, 0, 0, '', '', '', ''),
-(32, '', 0, 0, 0, '', '', '', ''),
-(33, '', 0, 0, 0, '', '', '', ''),
-(34, '', 0, 0, 0, '', '', '', ''),
-(35, '', 0, 0, 0, '', '', '', ''),
-(36, 'pelicula3', 2019, 95, 4, 'ver imagen', 'jkhf', 'sakdjh', 'kjhf'),
-(37, 'pelicula3', 2019, 95, 4, 'ver imagen', 'jkhf', 'sakdjh', 'kjhf'),
-(38, 'pelicula3', 2019, 95, 4, 'ver imagen', 'jkhf', 'sakdjh', 'kjhf');
+(47, 'la chica que saltaba a travÃ©s del tiempo', 2006, 98, 4, '', 'c:xampphtdocsejerciciospractica01moviesimagenesSubidas', '', 'https://www.filmaffinity.com/es/film830046.html'),
+(48, 'coin locker girl', 2015, 110, 4, '', 'c:xampphtdocsejerciciospractica01moviesimagenesSubidas', '', 'https://www.filmaffinity.com/es/film717462.html'),
+(49, 'sombra', 2018, 116, 3, '', 'c:xampphtdocsejerciciospractica01moviesimagenesSubidas', '', 'https://www.filmaffinity.com/es/film957690.html'),
+(50, 'the host', 2006, 119, 4, '', 'c:xampphtdocsejerciciospractica01moviesimagenesSubidas', '', 'https://www.filmaffinity.com/es/film991024.html'),
+(51, 'la maldicion de la flor dorada', 2006, 114, 4, '', 'c:xampphtdocsejerciciospractica01moviesimagenesSubidas', '', 'https://www.filmaffinity.com/es/film974502.html'),
+(52, 'parasitos', 2019, 132, 4, '', 'c:xampphtdocsejerciciospractica01moviesimagenesSubidas', '', 'https://www.filmaffinity.com/es/film520465.html'),
+(53, 'confessions', 2010, 106, 4, '', 'c:xampphtdocsejerciciospractica01moviesimagenesSubidas', '', 'https://www.filmaffinity.com/es/film950530.html'),
+(54, '13 asesinos', 2010, 126, 4, '', 'c:xampphtdocsejerciciospractica01moviesimagenesSubidas', '', 'https://www.filmaffinity.com/es/film238356.html'),
+(55, 'tren a busan', 2016, 118, 4, '', 'c:xampphtdocsejerciciospractica01moviesimagenesSubidas', '', 'https://www.filmaffinity.com/es/film312662.html'),
+(56, 'the neighbors', 2012, 110, 4, '', 'c:xampphtdocsejerciciospractica01moviesimagenesSubidas', '', 'https://www.filmaffinity.com/es/film723020.html'),
+(57, 'memorias de un asesino', 2017, 118, 4, '', 'c:xampphtdocsejerciciospractica01moviesimagenesSubidas', '', 'https://www.filmaffinity.com/es/film515745.html'),
+(58, 'el jardin de las palabras', 2013, 46, 4, '', 'c:xampphtdocsejerciciospractica01moviesimagenesSubidas', '', 'https://www.filmaffinity.com/es/film837056.html'),
+(59, 'your name', 2016, 106, 4, '', 'c:xampphtdocsejerciciospractica01moviesimagenesSubidas', '', 'https://www.filmaffinity.com/es/film307521.html');
 
 -- --------------------------------------------------------
 
@@ -140,16 +141,7 @@ INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `email`, `nick`, `password`
 (3, 'pepe', 'potamo', 'pepe@mail.com', 'pepe', '2222', 0),
 (4, 'juancho', 'lagarto', 'juancho@mail.com', 'juancho', '3333', 1),
 (5, 'amador', 'rivas', 'amador@mail.com', 'amador', '4444', 1),
-(12, 'son las 2144', 'vsh', 'sdth', 'prueba2', '0000', 1),
-(13, 'son las 2219', 'lakfj', 'ljkohi', 'prueba3', '0000', 1),
-(14, 'son las 2230', 'lhuyigvfty', 'ibuyvftr', 'prueba4', '0000', 1),
-(15, 'sigio en las 2230', 'lhuyvgtrfr', 'opij8yg6trfe5d', 'prueba5', '0000', 1),
-(16, 'son las 2231', 'lknyug6rt', 'lkugtfrd', 'prueba6', '0000', 1),
-(17, 'carmen', 'lamisma', 'carmen@correo.com', 'carmen', '1234', 0),
-(18, 'NUEVONUMERODIEZ', 'nodoyuna', 'siete@mail.com', 'diez', '0000', 1),
-(19, 'NUEVONUMERODIEZ', 'nodoyuna', 'siete@mail.com', 'diez', '0000', 1),
-(20, 'NUEVOONCE', 'lamisma', 'pier@autosl,com', 'once', '0000', 1),
-(21, 'NUMERODOCE', 'sdf', 'pier@autosl,com', 'doce', '0000', 1);
+(17, 'carmen', 'lamisma', 'carmen@correo.com', 'carmen', '1234', 0);
 
 --
 -- Índices para tablas volcadas
@@ -214,7 +206,7 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT de la tabla `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de la tabla `people`
@@ -226,7 +218,7 @@ ALTER TABLE `people`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Restricciones para tablas volcadas

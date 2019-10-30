@@ -60,7 +60,7 @@ class MovieController
         $dir_subida = 'D:/xampp/htdocs/ejercicios/practica01movies/imagenesSubidas/';
         $fichero_subido = $dir_subida.basename($_FILES['cover']['name']);
 
-        /*echo '<pre>';
+        echo '<pre>';
         if (move_uploaded_file($_FILES['cover']['tmp_name'], $fichero_subido)) {
             echo "El fichero es válido y se subió con éxito.\n";
         } else {
@@ -69,7 +69,7 @@ class MovieController
 
         echo 'Más información de depuración:';
         print_r($_FILES);
-        */
+        
 echo " paso de la funcion de subida";
 
         $resultInsert = $this->movie->insert($data);

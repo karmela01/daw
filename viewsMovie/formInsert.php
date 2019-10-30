@@ -19,7 +19,7 @@ Year<input type = 'text' class='form-control' name = 'year'><br/>
 Duration<input type = 'text' class='form-control' name = 'duration'><br/>
 Rating<input type = 'text' class='form-control' name = 'rating'><br/>
 <!--Cover<input type='text' class='form-control' name='cover'>-->
-<input type='hidden' name='MAX_FILE_SIZE' value='200000' >
+<input type='hidden' name='MAX_FILE_SIZE' value='400000' >
 Cover<input type='file' class='form-control' name='cover'><br/>
 
 
